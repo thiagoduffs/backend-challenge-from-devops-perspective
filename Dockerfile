@@ -2,10 +2,13 @@
 FROM golang:1.16-alpine AS builder
 WORKDIR /app
 
-# Copia apenas o diretório jwt-app, que contém o go.mod, go.sum e o código fonte
-COPY jwt-app/ .
+# Copiar apenas os arquivos necessários para download de dependências
+# Isso aproveita melhor o cache do Docker em builds subsequentes
+COPY jwt-app/go.mod jwt-app/go.sum ./
+RUN go mod download
 
-# Compila o binário como estático
+# Copiar os arquivos de código fonte e compilar o aplicativo
+COPY jwt-app/ .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o jwt-app .
 
 # Etapa de imagem final
