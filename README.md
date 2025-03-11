@@ -1,4 +1,35 @@
 # backend-challenge-from-devops-perspective
 
 
-. ├── app # Código da aplicação Java │ ├── pom.xml # Gerenciamento de dependências (Maven) │ ├── src/main/java/com/example/app │ │ ├── AppAController.java │ │ └── AppApplication.java │ ├── src/main/resources/application.properties │ ├── target # Artefatos gerados pelo build ├── build.sh # Script de build e push para DockerHub ├── Dockerfile # Configuração da imagem Docker ├── README.md # Documentação do projeto ├── sre-challenge-java # Helm Chart para deploy no Kubernetes │ ├── Chart.yaml # Definições do Helm Chart │ ├── values.yaml # Configurações do Helm Chart │ ├── templates # Manifestos Kubernetes │ │ ├── deployment.yaml # Configuração do Deployment no Kubernetes │ │ ├── service.yaml # Configuração do Service no Kubernetes │ │ ├── ingress.yaml # Configuração do Ingress (opcional) │ │ ├── namespace.yaml # Namespace da aplicação │ │ ├── hpa.yaml # Configuração do Autoscaler │ │ ├── serviceaccount.yaml │ │ ├── _helpers.tpl │ │ ├── tests/test-connection.yaml └── terraform-eks # Infraestrutura como código (IaC) para criar o cluster EKS ├── eks.tf # Configuração do EKS ├── provider.tf # Configuração do Provider AWS ├── security_groups.tf # Regras de firewall do cluster ├── outputs.tf ├── variables.tf
+# 📂 Estrutura do Projeto
+
+```bash
+.
+├── app                         # Código da aplicação Java
+│   ├── pom.xml                 # Gerenciamento de dependências (Maven)
+│   ├── src/main/java/com/example/app
+│   │   ├── AppAController.java
+│   │   └── AppApplication.java
+│   ├── src/main/resources/application.properties
+│   ├── target                  # Artefatos gerados pelo build
+├── build.sh                     # Script de build e push para DockerHub
+├── Dockerfile                   # Configuração da imagem Docker
+├── README.md                    # Documentação do projeto
+├── sre-challenge-java            # Helm Chart para deploy no Kubernetes
+│   ├── Chart.yaml                # Definições do Helm Chart
+│   ├── values.yaml               # Configurações do Helm Chart
+│   ├── templates                 # Manifestos Kubernetes
+│   │   ├── deployment.yaml       # Configuração do Deployment no Kubernetes
+│   │   ├── service.yaml          # Configuração do Service no Kubernetes
+│   │   ├── ingress.yaml          # Configuração do Ingress (opcional)
+│   │   ├── namespace.yaml        # Namespace da aplicação
+│   │   ├── hpa.yaml              # Configuração do Autoscaler
+│   │   ├── serviceaccount.yaml
+│   │   ├── _helpers.tpl
+│   │   ├── tests/test-connection.yaml
+└── terraform-eks                 # Infraestrutura como código (IaC) para criar o cluster EKS
+    ├── eks.tf                    # Configuração do EKS
+    ├── provider.tf                # Configuração do Provider AWS
+    ├── security_groups.tf         # Regras de firewall do cluster
+    ├── outputs.tf
+    ├── variables.tf
