@@ -102,7 +102,7 @@ Faz push da imagem para o Docker Hub.
 
 Envia um log de sucesso.
 
-```yaml
+```bash
 name: Build and Push to DockerHub
 on:
   push:
