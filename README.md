@@ -92,5 +92,29 @@ A stack do projeto foi construída com as seguintes tecnologias:
     ├── variables.tf                      # Variáveis do Terraform
 
 
+🚀 Como Funciona
+1️⃣ Build e Push da Imagem Docker
+A pipeline GitHub Actions é acionada quando há um commit na branch develop. O workflow realiza os seguintes passos:
 
+Faz build da imagem da aplicação Java.
 
+Faz push da imagem para o Docker Hub.
+
+Envia um log de sucesso.
+
+```yaml
+name: Build and Push to DockerHub
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+      - name: Build da Imagem Docker
+        run: docker build -t usuario/sre-challenge-java:v1.0 .
+      - name: Push da Imagem para o DockerHub
+        run: docker push usuario/sre-challenge-java:v1.0
